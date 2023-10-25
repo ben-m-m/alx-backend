@@ -6,7 +6,6 @@ BasicCache class
 from base_caching import BaseCaching
 
 
-
 class BasicCache(BaseCaching):
     """
     a basic caching system
@@ -20,13 +19,12 @@ class BasicCache(BaseCaching):
             return
         self.cache_data[key] = item
 
-
     def get(self, key):
         """
         Must return the value in self.cache_data linked to key.
-        If key is None or if the key doesn’t exist in self.cache_data, return None.
+        If key is None or if the key doesn’t
+        exist in self.cache_data, return None.
         """
         if key is None:
             return None
         return self.cache_data.get(key, None)
-
