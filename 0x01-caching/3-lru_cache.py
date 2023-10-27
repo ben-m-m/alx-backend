@@ -6,7 +6,7 @@ from base_caching import BaseCaching
 
 
 class LRUCache(BaseCaching):
-    """LRU Cache class
+    """LRU caching algorithm
     """
     def __init__(self):
         """Constructor
@@ -26,7 +26,8 @@ class LRUCache(BaseCaching):
             print('DISCARD: {}'.format(discard[0]))
 
     def get(self, key):
-        """Get an item by key
+        """
+        return elements based on the keys
         """
         if key in self.cache_data:
             self.lru = key
