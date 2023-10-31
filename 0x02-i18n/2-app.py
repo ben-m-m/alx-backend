@@ -25,7 +25,7 @@ def get_locale():
     babel locale selector decorator
     determine the best match with our supported languages.
     """
-    return request.accept_languages.best_match(LANGUAGES)
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 @app.route('/')
@@ -35,4 +35,4 @@ def index():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run()
