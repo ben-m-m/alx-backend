@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """basic flask app
 """
 from flask import Flask, render_template, request
@@ -35,4 +36,4 @@ def index():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
