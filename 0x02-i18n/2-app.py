@@ -25,7 +25,7 @@ def get_locale():
     babel locale selector decorator
     determine the best match with our supported languages.
     """
-    return request.accept_languages.best_match(app.config['LANGUAGES'])
+    return request.accept_languages.best_match(LANGUAGES)
 
 
 @app.route('/')
