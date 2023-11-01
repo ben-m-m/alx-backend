@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """basic flask app
 """
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, g
 from flask_babel import Babel
+from typing import Union, Dict
 
 app = Flask(__name__)
 babel = Babel(app)
