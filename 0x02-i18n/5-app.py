@@ -19,6 +19,30 @@ class Config:
 
 app.config.from_object(Config)
 app.url_map.strict_slashes = False
+users = {
+    1: {"name": "Balou", "locale": "fr", "timezone": "Europe/Paris"},
+    2: {"name": "Beyonce", "locale": "en", "timezone": "US/Central"},
+    3: {"name": "Spock", "locale": "kg", "timezone": "Vulcan"},
+    4: {"name": "Teletubby", "locale": None, "timezone": "Europe/London"},
+}
+
+
+def get_user() -> Union[Dict, None]:
+    """
+    retrieves user by id
+    """
+    login_id = request.args.get('login_as')
+    if login_id:
+        return users.get(int(login_id))
+    return None
+
+@app.before_request
+def before_request() -> None:
+    """
+    perfoms routines before each requests resolution
+    """
+    user = get_user()
+    g.user = user
 
 
 @babel.localeselector
