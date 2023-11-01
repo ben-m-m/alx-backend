@@ -17,6 +17,7 @@ class Config:
     BABEL_DEFAULT_LOCALE = 'en'
     BABEL_DEFAULT_TIMEZONE = 'UTC'
 
+
 users = {
     1: {"name": "Balou", "locale": "fr", "timezone": "Europe/Paris"},
     2: {"name": "Beyonce", "locale": "en", "timezone": "US/Central"},
@@ -35,6 +36,7 @@ def get_user() -> Union[Dict, None]:
     if login_id:
         return users.get(int(login_id))
     return None
+
 
 @app.before_request
 def before_request() -> None:
@@ -58,7 +60,7 @@ def get_locale():
 
 
 @app.route('/', strict_slashes=False)
-def index():
+def get_index():
     """Returns index html"""
     return render_template('4-index.html')
 
