@@ -47,7 +47,7 @@ def before_request() -> None:
     g.user = user
 
 
-@babel.localeselector
+# @babel.localeselector
 def get_locale():
     """
     babel locale selector decorator
@@ -59,10 +59,13 @@ def get_locale():
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
+babel.init_app(app, locale_selector=get_locale)
+
+
 @app.route('/')
 def get_index():
     """Returns index html"""
-    return render_template('4-index.html')
+    return render_template('5-index.html')
 
 
 if __name__ == '__main__':
