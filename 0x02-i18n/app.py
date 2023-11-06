@@ -48,7 +48,7 @@ def before_request() -> None:
     g.user = user
 
 
-# @babel.localeselector
+@babel.localeselector
 def get_locale() -> str:
     """Retrieves the locale for a web page.
     """
@@ -67,12 +67,10 @@ def get_locale() -> str:
     if header_locale in app.config["LANGUAGES"]:
         return header_locale
     return app.config['BABEL_DEFAULT_LOCALE']
+# babel.init_app(app, locale_selector=get_locale)
 
 
-babel.init_app(app, locale_selector=get_locale)
-
-
-# @babel.timezoneselector
+@babel.timezoneselector
 def get_timezone() -> str:
     """Retrieves the timezone for a web page.
     """
