@@ -28,4 +28,4 @@ function createPushNotificationsJobs(jobs, queue) {
 }
 
 
-export default createPushNotificationsJobs;
+module.exports = createPushNotificationsJobs;
